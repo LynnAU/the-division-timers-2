@@ -117,7 +117,7 @@ export function Timer({
   const splitTimes = useMemo(() => MsToDaysHoursMinsSeconds(diff), [diff])
 
   const renderTimeComponents = splitTimes.map(({ num, unit }) => (
-    <span key={unit} className="text-[hsla(0,0%,100%,.15)]">
+    <span key={unit} className="text-[hsla(0,0%,100%,.35)]">
       {num === 0 && `0${num} ${unit}`}
       {num > 0 && num < 10 && (
         <>
@@ -139,7 +139,7 @@ export function Timer({
 
   return (
     <div className="text-center mt-12">
-      <h1 className="text-3xl text-orange-dark mb-2 sm:text-2xl">
+      <h1 className="text-3xl text-orange-dark mb-2 xs:text-4xl sm:text-2xl lg:text-3xl">
         {name}&nbsp;
         {!disabled && isOffset && offsetText && offsetText}
         {!disabled && !isOffset && resetText && resetText}
@@ -147,12 +147,10 @@ export function Timer({
 
       {!disabled ? (
         <>
-          <span className="text-[1.7rem] sm:text-4xl">
-            {renderTimeComponents}
-          </span>
+          <span className="text-4xl">{renderTimeComponents}</span>
           <br />
           <br />
-          <span className="text-lg text-[hsla(0,0%,100%,.15)] sm:text-[1.6rem] md:text-[2rem] lg:text-2xl">
+          <span className="text-lg text-[hsla(0,0%,100%,.35)] xs:text-2xl lg:text-3xl">
             {deadline.toLocaleDateString(undefined, {
               month: 'long',
               day: 'numeric',

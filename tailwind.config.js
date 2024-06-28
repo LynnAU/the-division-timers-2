@@ -4,6 +4,7 @@ export default {
   theme: {
     fontFamily: { sans: ['Titillium Web', 'system-ui'] },
     screens: {
+      xs: '345px',
       sm: '576px',
       md: '768px',
       lg: '992px',
