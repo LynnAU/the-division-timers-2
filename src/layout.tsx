@@ -8,8 +8,6 @@ export default function Layout() {
       <Nav />
       <Outlet />
 
-      {/* gdpr banner because we save a single cookie */}
-
       <div className={styles.wrapper}>
         <div className={styles.outer}>
           <div className={styles.inner}>
