@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import { Nav } from './components/nav'
+import styles from './layout.module.css'
 
 export default function Layout() {
   return (
@@ -9,11 +10,11 @@ export default function Layout() {
 
       {/* gdpr banner because we save a single cookie */}
 
-      <div className="mt-7">
-        <div className="my-auto mx-auto text-center">
-          <div className="flex justify-center">
+      <div className={styles.wrapper}>
+        <div className={styles.outer}>
+          <div className={styles.inner}>
             © divisiontimers.com -&nbsp;
-            <a href="//discord.gg/thedivision" className="text-orange">
+            <a href="//discord.gg/thedivision" className={styles.orange}>
               discord.gg/thedivision
             </a>
           </div>

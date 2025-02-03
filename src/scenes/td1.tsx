@@ -1,8 +1,9 @@
 import { Timer } from '../components/timer'
+import styles from './styles.module.css'
 
 export function TD1() {
   return (
-    <div className="flex flex-col justify-center mt-3">
+    <div className={styles.wrapper}>
       <Timer
         name="Vendors, Incursions, Legendaries"
         reference="2019-11-23T00:00:00.00Z"

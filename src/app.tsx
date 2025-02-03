@@ -1,27 +1,8 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { TD2 } from './scenes/td2'
-import Layout from './layout'
 import { useEffect, useState } from 'react'
-import { TimerCtx } from './contexts/timer'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { TaskTimer } from 'tasktimer'
-import { TD1 } from './scenes/td1'
-
-const Routes = [
-  {
-    path: '/',
-    element: <Layout />,
-    children: [
-      {
-        path: '/',
-        element: <TD2 />,
-      },
-      {
-        path: '/td1',
-        element: <TD1 />,
-      },
-    ],
-  },
-]
+import { TimerCtx } from './contexts/timer'
+import Routes from './routes'
 
 const Router = createBrowserRouter(Routes)
 

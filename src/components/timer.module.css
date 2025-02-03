@@ -1,0 +1,70 @@
+.wrapper {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.header {
+  font-size: 30px;
+  line-height: 36px;
+  color: #ff7f00;
+  margin-bottom: 8px;
+
+  @media (min-width: 345px) {
+    & {
+      font-size: 36px;
+      line-height: 40px;
+    }
+  }
+
+  @media (min-width: 576px) {
+    & {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    & {
+      font-size: 30px;
+      line-height: 36px;
+    }
+  }
+}
+
+.time {
+  font-size: 36px;
+  line-height: 40px;
+
+  .component {
+    color: hsla(0, 0%, 100%, 0.35);
+
+    .white {
+      color: white;
+    }
+  }
+}
+
+.deadline {
+  font-size: 18px;
+  line-height: 28px;
+  color: hsla(0, 0%, 100%, 0.35);
+
+  @media (min-width: 345px) {
+    & {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    & {
+      font-size: 30px;
+      line-height: 36px;
+    }
+  }
+}
+
+.status {
+  font-size: 1.7rem;
+  color: white;
+}

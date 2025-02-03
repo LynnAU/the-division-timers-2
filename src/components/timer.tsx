@@ -1,10 +1,11 @@
 import { addDays, addHours, addWeeks } from 'date-fns'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useTimer } from '../contexts/timer'
+import styles from './timer.module.css'
 
 type TimeLength = `${number}w` | `${number}d` | `${number}h`
 
-interface Props {
+type Props = {
   id?: string
   name: string
   reference: string // timestamp
@@ -111,24 +112,23 @@ export function Timer({
     }
 
     SetDifference(diff)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tick])
 
   const splitTimes = useMemo(() => MsToDaysHoursMinsSeconds(diff), [diff])
 
   const renderTimeComponents = splitTimes.map(({ num, unit }) => (
-    <span key={unit} className="text-[hsla(0,0%,100%,.35)]">
+    <span key={unit} className={styles.component}>
       {num === 0 && `0${num} ${unit}`}
       {num > 0 && num < 10 && (
         <>
           0
-          <span className="text-white">
+          <span className={styles.white}>
             {num}&nbsp;{unit}
           </span>
         </>
       )}
       {num >= 10 && (
-        <span className="text-white">
+        <span className={styles.white}>
           {num}&nbsp;
           {unit}
         </span>
@@ -138,8 +138,8 @@ export function Timer({
   ))
 
   return (
-    <div className="text-center mt-12">
-      <h1 className="text-3xl text-orange-dark mb-2 xs:text-4xl sm:text-2xl lg:text-3xl">
+    <div className={styles.wrapper}>
+      <h1 className={styles.header}>
         {name}&nbsp;
         {!disabled && isOffset && offsetText && offsetText}
         {!disabled && !isOffset && resetText && resetText}
@@ -147,10 +147,10 @@ export function Timer({
 
       {!disabled ? (
         <>
-          <span className="text-4xl">{renderTimeComponents}</span>
+          <span className={styles.time}>{renderTimeComponents}</span>
           <br />
           <br />
-          <span className="text-lg text-[hsla(0,0%,100%,.35)] xs:text-2xl lg:text-3xl">
+          <span className={styles.deadline}>
             {deadline.toLocaleDateString(undefined, {
               month: 'long',
               day: 'numeric',
@@ -166,8 +166,8 @@ export function Timer({
           </span>
         </>
       ) : (
-        <span className="text-[1.7rem]">
-          <span className="text-white">{status}</span>
+        <span className={styles.status}>
+          <span>{status}</span>
         </span>
       )}
     </div>

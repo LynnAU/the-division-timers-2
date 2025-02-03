@@ -1,13 +1,15 @@
-import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import tailwindcss from 'tailwindcss'
+import browserslist from 'browserslist'
+import { browserslistToTargets } from 'lightningcss'
+import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   css: {
-    postcss: {
-      plugins: [tailwindcss()],
+    transformer: 'lightningcss',
+    lightningcss: {
+      targets: browserslistToTargets(browserslist('>= 0.25%')),
     },
   },
 })
